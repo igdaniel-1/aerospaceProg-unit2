@@ -44,6 +44,7 @@ def exercise1():
 # Use NumPy's random number generation functions to generate simulated altitude, velocity, and acceleration data.
 # Assume that the flight data consists of 1000 data points each for altitude, velocity, and acceleration.
 # Perform array indexing and slicing to extract subsets of data for analysis.
+
 # Use array comparisons and conditional methods to identify critical points:
 # Critical altitude: Altitude above 5000 meters.
 # Critical velocity: Velocity greater than 300 meters per second.
