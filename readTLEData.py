@@ -3,6 +3,8 @@
 # Reading Two-Line Element Set Data for Orbital Visualization of a Satellite 
 # Data is fed from unit2/tle.txt
 
+import math
+
 path = "tle.txt"
 tle_data = open("tle.txt", "r").readlines()
 # print(tle_data)
@@ -13,8 +15,8 @@ tle_data_clean = list(map(lambda line: line.strip(), tle_data))
 # print(tle_data_clean)
 
 
-# below this portion I directly use AngelinaTsuboi's code, the author of this course
-
+# below this comment, I directly use AngelinaTsuboi's code, the author of this course
+# source: https://github.com/ANG13T/python-for-aerospace/blob/main/Chapter%202%20-%20Libraries%20and%20Data%20Visualization/Lesson_5_TLE_Visualization.ipynb
 
 # Interpreting the TLE lines as their indiv data points
 for i in range(len(tle_data_clean)):
@@ -93,5 +95,23 @@ def print_tle(satellite):
     print(f"Revolution Number: {satellite['revolution_number']}")
     print()
 
+# print full satellite data from TLE
+# print_tle(data)
 
-print_tle(data)
+
+# Calculating Semi Major Axis
+def semi_major_axis(mean_motion):
+    G = 6.674 * 10**-11  # Gravitational constant (m³ kg⁻¹ s⁻²)
+    M = 5.972 * 10**24   # Mass of the Earth (kg)
+    n = mean_motion * (2 * math.pi) / (24 * 60 * 60)  # Convert mean motion from rev/day to rad/s
+    return (G * M / (n**2))**(1/3)
+semimajor_axis = semi_major_axis(data["mean_motion"])
+# print(semimajor_axis)
+
+# Calculating Orbital Period
+def orbital_period(semi_major_axis):
+    G = 6.674 * 10**-11  # Gravitational constant (m³ kg⁻¹ s⁻²)
+    M = 5.972 * 10**24   # Mass of the Earth (kg)
+    return 2 * math.pi * math.sqrt(semi_major_axis**3 / (G * M))
+period = orbital_period(semimajor_axis)
+# print(period)
