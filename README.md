@@ -25,3 +25,15 @@ You can run them the same way I did by following these steps.
 ```deactivate```
 
 6. To restart the environment, repeat step 2 within your project directory.
+
+
+## matplotlib
+
+To run the matplotlib exercises in this folder, the same setup can be used with one change.
+Repeating the steps above, set up and activate the Virtual Environment.
+
+For step 3, install matplotlib.
+
+```pip3 install pandas```
+
+Follow the rest of the steps, double checking your install. 
