@@ -1,4 +1,4 @@
-# Unit 2 Question 5 part 1
+# Unit 2 Question 5 part 1 and 2
 
 # Reading Two-Line Element Set Data for Orbital Visualization of a Satellite 
 # Data is fed from unit2/tle.txt
