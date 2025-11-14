@@ -4,6 +4,10 @@
 # Data is fed from unit2/tle.txt
 
 import math
+import numpy as np
+from PyAstronomy import pyasl
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 
 path = "tle.txt"
 tle_data = open("tle.txt", "r").readlines()
@@ -115,3 +119,20 @@ def orbital_period(semi_major_axis):
     return 2 * math.pi * math.sqrt(semi_major_axis**3 / (G * M))
 period = orbital_period(semimajor_axis)
 # print(period)
+
+
+# Part 2
+# using PyAstronomy for a satellite orbital visualizer
+# print(semimajor_axis, period, data["eccentricity"], data["raan"], data["inclination"], data["argument_of_perigee"])
+
+orbit = pyasl.KeplerEllipse(a=semimajor_axis, per=period, e=data["eccentricity"], Omega=data["raan"], i=data["inclination"], w=data["argument_of_perigee"])
+t = np.linspace(0, period, 200)
+positions = orbit.xyzPos(t)
+
+# plot the orbiting object
+plt.style.use('dark_background')
+plt.plot(0, 0, 'bo', markersize=11, label="Earth")
+plt.plot(positions[::, 1], positions[::, 0], 'w-', label="ISS Path Trajectory")
+plt.legend(loc="lower right")
+plt.title(f'Orbital Visualization of {data["name"]}')
+plt.show()
