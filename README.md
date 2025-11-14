@@ -30,10 +30,17 @@ You can run them the same way I did by following these steps.
 ## matplotlib
 
 To run the matplotlib exercises in this folder, the same setup can be used with one change.
-Repeating steps 1 and 2 above, set up and activate the Virtual Environment.
+Repeating steps 1 and/or 2 above, set up and/or activate the Virtual Environment.
 
 For step 3, install matplotlib.
 
 ```pip3 install matplotlib```
 
 Follow the rest of the steps, double checking your install. 
+
+
+## PyAstronomy
+
+As with the above examples, run steps 1 and/or 2. Then install PyAstronomy using:
+
+```pip install PyAstronomy```
